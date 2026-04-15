@@ -9,6 +9,7 @@ img {
   height: auto;
   display: block;
 }
+
 /************************************************ Mobile first **********************************************/
 
 body {
@@ -61,8 +62,98 @@ a {
   letter-spacing: 2%;
 }
 
+/********* Burger menu ************/
+
+.menu {
+  display: none;
+  list-style: none;
+}
+.burger {
+  display: block;
+  background-color: transparent;
+  border: 0;
+}
+.burger.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  transition: 0.2s linear;
+}
+.burger.active .line:nth-child(2) {
+  opacity: 0;
+  transition: 0.15s linear;
+}
+.burger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  transition: 0.2s linear;
+}
+nav.active .menu {
+  display: block;
+  background-color: #ffffff;
+  position: absolute;
+  top: 9rem;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: calc(100vh - 9rem);
+}
+nav.active .menu li {
+  margin: 10px 0;
+}
+nav.active .menu a {
+  font-size: 24px;
+}
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.92rem;
+  background-color: #ffffff;
+  height: 9rem;
+}
+.logo img {
+  width: 7.4rem;
+}
+img.burgergrid {
+  display: block;
+  margin: 0 auto;
+  width: 100vw;
+  height: auto;
+}
+.menu li {
+  margin-right: 20px;
+}
+.menu li:last-child {
+  margin-right: 0;
+}
+.menu a {
+  display: block;
+  padding: 0.8rem 2.8rem;
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: start;
+  border: #000 0.06rem solid;
+}
+.menu a:hover {
+  color: #ff0000;
+}
+.burger {
+  width: 2.5rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+.burger .line {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #007f16;
+  margin-bottom: 7px;
+  transition: 0.2s linear;
+}
+
 /****************************************************** M *************************************************/
-@media (min-width: 850px) {
+@media (min-width: 800px) {
   h1 {
     font-size: var(--h1-size-desk);
   }
@@ -87,5 +178,20 @@ a {
   }
   .navtext {
     font-size: var(--nav-size-desk);
+  }
+
+  /********** Burger menu *************/
+  .burger {
+    display: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 }

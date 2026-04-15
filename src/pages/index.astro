@@ -1,24 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../css/custom.css';
-import '../css/general.css'
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Her importerer vi Card-komponenten, så den kan bruges længere nede på siden.
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import "../css/general.css";
+import "../css/custom.css";
 ---
-
 <Layout>
-	<h1>Her er h1</h1>
-	<h2>Her er h2</h2>
-	<h3>Her er h3</h3>
-	<h4>Her er h4</h4>
-	<p>Her er tekst</p>
-	<a href="/">Her er et link</a>
-	<p class="subtle">Her er subtle</p>
-	<p class="navtitle">Her er nav title</p>
-	<p class="navtext">Her er nav text</p>
+  <h1>God Sag. Bedre øl</h1>
+  <section>
+    <h2>kort sektion</h2>
+    <!-- Her bruger vi Card-komponenten som et HTML-tag. -->
+    <!-- img, tag og text er props, altså værdier vi sender videre til Card. -->
+    <Card img="/imgs/beer1.png" tag="gratis" text="bedste øl på markedet" />
+    <Card img="/imgs/beer2.png" tag="dyr" text="værste øl på markedet" />
+    <Card img="/imgs/beer3.png" tag="billig" text="trentemøller på markedet" />
+  </section>
+  <h1>Her er h1</h1>
+  <h2>Her er h2</h2>
+  <h3>Her er h3</h3>
+  <h4>Her er h4</h4>
+  <p>Her er tekst</p>
+  <a href="/">Her er et link</a>
+  <p class="subtle">Her er subtle</p>
+  <p class="navtitle">Her er nav title</p>
+  <p class="navtext">Her er nav text</p>
 </Layout>
-
-<style>
-	
-</style>
