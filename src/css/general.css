@@ -1,0 +1,91 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/************************************************ Mobile first **********************************************/
+
+body {
+  font-size: var(--text-size-mobile);
+  color: var(--black);
+}
+h1 {
+  font-family: var(--instrument);
+  font-size: var(--h1-size-mobile);
+  font-weight: var(--h1-weight);
+  letter-spacing: 10%;
+}
+h2 {
+  font-family: var(--instrument);
+  font-size: var(--h2-size-mobile);
+  font-weight: var(--h2-weight);
+  letter-spacing: 2%;
+}
+h3 {
+  font-family: var(--instrument);
+  font-size: var(--h3-size-mobile);
+  letter-spacing: 2%;
+}
+h4 {
+  font-family: var(--instrument);
+  font-size: var(--h4-size-mobile);
+  letter-spacing: 2%;
+}
+p,
+a {
+  font-family: var(--instrument);
+  font-size: var(--text-size-mobile);
+}
+
+.subtle {
+  font-family: var(--instrumentitalic);
+  font-size: var(--subtle-size-mobile);
+  letter-spacing: 2%;
+}
+
+.navtitle {
+  font-family: var(--asapmedium);
+  font-size: var(--nav-title-size-mobile);
+  letter-spacing: 10%;
+}
+
+.navtext {
+  font-family: var(--asaplight);
+  font-size: var(--nav-size-mobile);
+  letter-spacing: 2%;
+}
+
+/****************************************************** M *************************************************/
+@media (min-width: 850px) {
+  h1 {
+    font-size: var(--h1-size-desk);
+  }
+  h2 {
+    font-size: var(--h2-size-desk);
+  }
+  h3 {
+    font-size: var(--h3-size-desk);
+  }
+  h4 {
+    font-size: var(--h4-size-desk);
+  }
+  p,
+  a {
+    font-size: var(--text-size-desk);
+  }
+  .subtle {
+    font-size: var(--subtle-size-desk);
+  }
+  .navtitle {
+    font-size: var(--nav-title-size-desk);
+  }
+  .navtext {
+    font-size: var(--nav-size-desk);
+  }
+}
