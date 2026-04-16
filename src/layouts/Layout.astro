@@ -3,6 +3,7 @@ import "../css/general.css";
 import "../css/custom.css";
 import Button from "../components/Button.astro";
 ---
+
 <!doctype html>
 <html lang="da">
   <head>
@@ -10,7 +11,6 @@ import Button from "../components/Button.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="noindex">
     <title>A Good Case</title>
   </head>
   <body>
@@ -29,6 +29,7 @@ import Button from "../components/Button.astro";
           <li><a href="erhverv">Søg (placeholder)</a></li>
           <img class="burgergrid" src="/public/imgs/burgergrid.webp" alt="" />
         </ul>
+
         <button class="burger">
           <span class="line"></span>
           <span class="line"></span>
@@ -39,20 +40,118 @@ import Button from "../components/Button.astro";
   </body>
   <slot />
   <footer>
-    <p>
-      Her er min footer
+    <section class="footer-grid">
+      <div class="footer-column">
+        <div class="block">
+          <h2>KONTAKT OS</h2>
+          <p>Telefon: +45 30 45 99 90</p>
+          <p>Mail: info@agoodcase.dk</p>
+
+          <p>
+            A Good Case ApS<br />
+            Vallensbækvej 55<br />
+            2605 Brøndby<br />
+            CVR-nr 41440031
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>AGOODCASE.DK</h2>
+          <ul>
+            <li>Om os</li>
+            <li>Handelsbetingelser</li>
+            <li>GDPR</li>
+            <li>Levering og prisgaranti</li>
+            <li>Smiley rapport</li>
+            <li>MitID Aldersverificering</li>
+            <li>Konkurrence Ølfestival 2025</li>
+            <li>Spørgsmål og svar</li>
+          </ul>
+        </div>
+
+        <p>© 2026 - A Good Case Drevet af Shopify</p>
+      </div>
+
+      <div class="footer-column">
+        <div class="block">
+          <h2>ÅBNINGSTIDER</h2>
+          <p>
+            Lagersalg og afhentning:<br />
+            Onsdag-Fredag:<br />
+            kl. 10:00 - 17:00
+          </p>
+
+          <p>
+            Tlf åbent alle hverdage<br />
+            kl. 9:00 - 12:00
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>NYHEDSBREV</h2>
+          <p>Få en masse spændende tilbud - lige til døren.</p>
+
+          <button>Abonnér her</button><br />
+
+          <img
+            src="/public/imgs/aldersgraense.webp"
+            alt="Aldersgrænse 16 og 18"
+          />
+
+          <div class="socials">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">TikTok</a>
+          </div>
+
+          <div class="payments">
+            <img src="/public/imgs/paymentmethods.webp" alt="Betalingsikoner" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Her er min footer
       <Button title="ABONNÉR" variant="secondary" />
-      <Button title="ABONNÉR 2" variant="primary" />
-    </p>
+      <Button title="ABONNÉR 2" variant="primary" /> -->
   </footer>
 </html>
+
 <!-- JS til burgermenu inline script -->
+
 <script>
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
+
   burger.addEventListener("click", burgerClick);
+
   function burgerClick() {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
   }
 </script>
+
+/* FOOTER */
+<style>
+  footer {
+    background-color: #ffffff;
+    border-top: #000 1px solid;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .block {
+    margin-bottom: 2rem;
+  }
+</style>
