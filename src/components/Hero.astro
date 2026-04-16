@@ -1,0 +1,16 @@
+---
+// const img = Astro.props.img;
+const { images } = Astro.props;
+const tag = Astro.props.tag;
+const text = Astro.props.text;
+---
+
+<article class="hero">
+  <!-- Her indsætter vi billedstien fra prop'en img, tag og text. -->
+  <div class="gallery">
+    {images.map((image) => <img src={image.src} alt={image.alt} />)}
+  </div>
+  <p>{tag}</p>
+</article>
+
+<style></style>

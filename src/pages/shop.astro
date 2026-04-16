@@ -1,13 +1,24 @@
 ---
 // Her importerer vi Card-komponenten, så den kan bruges længere nede på siden.
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import "../css/general.css";
-import "../css/custom.css";
+import Cardrigtig from "../components/Cardrigtig.astro";
+const endpoint = "https://kea-alt-del.dk/t7/api/products?limit=40";
+const data = await fetch(endpoint).then((response) => response.json());
 ---
+
 <Layout>
-  <h1>Shop</h1>
+  <h2>Shop</h2>
+
   <section>
-    <p>jeg har lavet shopsiden</p>
+    {data.map((product) => <Cardrigtig {product} />)}
   </section>
 </Layout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>
