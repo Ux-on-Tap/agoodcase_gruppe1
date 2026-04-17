@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 img {
   width: 100%;
   height: auto;
@@ -16,28 +17,33 @@ body {
   font-size: var(--text-size-mobile);
   color: var(--black);
 }
+
 h1 {
   font-family: var(--instrument);
   font-size: var(--h1-size-mobile);
   font-weight: var(--h1-weight);
   letter-spacing: 10%;
 }
+
 h2 {
   font-family: var(--instrument);
   font-size: var(--h2-size-mobile);
   font-weight: var(--h2-weight);
   letter-spacing: 2%;
 }
+
 h3 {
   font-family: var(--instrument);
   font-size: var(--h3-size-mobile);
   letter-spacing: 2%;
 }
+
 h4 {
   font-family: var(--instrument);
   font-size: var(--h4-size-mobile);
   letter-spacing: 2%;
 }
+
 p,
 a,
 li {
@@ -71,23 +77,28 @@ li {
   display: none;
   list-style: none;
 }
+
 .burger {
   display: block;
   background-color: transparent;
   border: 0;
 }
+
 .burger.active .line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
   transition: 0.2s linear;
 }
+
 .burger.active .line:nth-child(2) {
   opacity: 0;
   transition: 0.15s linear;
 }
+
 .burger.active .line:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
   transition: 0.2s linear;
 }
+
 nav.active .menu {
   display: block;
   background-color: #ffffff;
@@ -98,12 +109,15 @@ nav.active .menu {
   z-index: 1;
   height: calc(100vh - 9rem);
 }
+
 nav.active .menu li {
   margin: 10px 0;
 }
+
 nav.active .menu a {
   font-size: 24px;
 }
+
 header {
   position: sticky;
   top: 0;
@@ -114,21 +128,26 @@ header {
   background-color: #ffffff;
   height: 9rem;
 }
+
 .logo img {
   width: 7.4rem;
 }
+
 img.burgergrid {
   display: block;
   margin: 0 auto;
   width: 100vw;
   height: auto;
 }
+
 .menu li {
   margin-right: 20px;
 }
+
 .menu li:last-child {
   margin-right: 0;
 }
+
 .menu a {
   display: block;
   padding: 0.8rem 2.8rem;
@@ -138,14 +157,17 @@ img.burgergrid {
   text-align: start;
   border: #000 0.06rem solid;
 }
+
 .menu a:hover {
   color: #ff0000;
 }
+
 .burger {
   width: 2.5rem;
   height: 1.6rem;
   cursor: pointer;
 }
+
 .burger .line {
   display: block;
   width: 100%;
@@ -160,26 +182,33 @@ img.burgergrid {
   h1 {
     font-size: var(--h1-size-desk);
   }
+
   h2 {
     font-size: var(--h2-size-desk);
   }
+
   h3 {
     font-size: var(--h3-size-desk);
   }
+
   h4 {
     font-size: var(--h4-size-desk);
   }
+
   p,
   a,
   li {
     font-size: var(--text-size-desk);
   }
+
   .subtle {
     font-size: var(--subtle-size-desk);
   }
+
   .navtitle {
     font-size: var(--nav-title-size-desk);
   }
+
   .navtext {
     font-size: var(--nav-size-desk);
   }
@@ -188,14 +217,35 @@ img.burgergrid {
   .burger {
     display: none;
   }
+
   nav {
     display: flex;
     align-items: center;
   }
+
   .menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
+    gap: 1.25rem;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+
+  .menu li {
+    margin-right: 0;
+  }
+
+  .menu a {
+    padding: 0;
+    border: 0;
+  }
+
+  img.burgergrid {
+    display: none;
   }
 }
