@@ -6,11 +6,52 @@ const text = Astro.props.text;
 ---
 
 <article class="hero">
-  <!-- Her indsætter vi billedstien fra prop'en img, tag og text. -->
   <div class="gallery">
     {images.map((image) => <img src={image.src} alt={image.alt} />)}
+    <h1>{tag}</h1>
   </div>
-  <p>{tag}</p>
 </article>
+<style>
+  .hero {
+    margin: 1.8rem 0;
+  }
 
-<style></style>
+  .gallery {
+    position: relative;
+    margin: 2.8rem;
+  }
+
+  .gallery img:nth-child(2) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery img:nth-child(1) {
+    position: absolute;
+    width: 83%;
+    top: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .gallery img:nth-child(3) {
+    position: absolute;
+    width: 7%;
+    top: 87%;
+    left: 5%;
+    z-index: 3;
+  }
+
+  .gallery h1 {
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    left: 8.5%;
+    z-index: 4;
+    white-space: pre-line;
+    font-size: clamp(1.875rem, 6vw, 4.5rem);
+    line-height: 1.3;
+  }
+</style>
