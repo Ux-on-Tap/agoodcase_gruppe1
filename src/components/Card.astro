@@ -2,12 +2,16 @@
 // Astro.props indeholder de værdier, som komponenten modtager fra index.astro.
 const img = Astro.props.img;
 const tag = Astro.props.tag;
-const text = Astro.props.text;
+const text1 = Astro.props.text1;
+const text2 = Astro.props.text2;
 // const { img, tag, text } = Astro.props; // Shorthand Alternativ (flottere) måde at skrive med destructuring//
 ---
+
 <article>
   <!-- Her indsætter vi billedstien fra prop'en img, tag og text. -->
   <img src={img} />
-  <p>{tag}</p>
-  <p>{text}</p>
+  <h3>{tag}</h3>
+  <p>{text1}</p>
+  <p>{text2}</p>
+  <slot />
 </article>

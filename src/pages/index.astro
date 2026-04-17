@@ -3,6 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
 import "../css/general.css";
 import Cardrigtig from "../components/Cardrigtig.astro";
 ---
@@ -16,14 +17,12 @@ import Cardrigtig from "../components/Cardrigtig.astro";
     ]}
     tag={"GOD STEMNING,\nGOD SAMVITTIGHED"}
   />
-<Cardrigtig></Cardrigtig>
 
-  <!-- <section>
-    <h2>kort sektion</h2> -->
-  <!-- Her bruger vi Card-komponenten som et HTML-tag. -->
-  <!-- img, tag og text er props, altså værdier vi sender videre til Card. -->
-  <!-- <Card img="/imgs/beer1.png" tag="gratis" text="bedste øl på markedet" />
-    <Card img="/imgs/beer2.png" tag="dyr" text="værste øl på markedet" />
-    <Card img="/imgs/beer3.png" tag="billig" text="trentemøller på markedet" />
-  </section> -->
+  <Card
+    img="/imgs/heroimg.webp"
+    tag="Vi giver specialøl en ny chance"
+    text1=" og unge med udfordringer en vej ind til arbejdslivet. 
+Din vej til billig overskudsøl og en god gerning.  Vi tager socialt ansvar og skaber muligheder for unge med udfordringer  med en praktikplads på os. Samtidig opkøber vi restpartier af specialøl, som du får til favorable priser. "
+    text2="Læs mere om vores filosofi her →"
+  />
 </Layout>

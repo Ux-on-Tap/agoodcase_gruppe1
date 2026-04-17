@@ -3,14 +3,14 @@ const { product } = Astro.props;
 ---
 
 <article>
-  <img src="../../public/imgs/beer1.png" alt="">
+  <img src={product.images} />
   <div>
-    <p id="now">39,75 DKK</p>
-    <p id="before">55,95 DKK</p>
+    <p id="now">{product.price}kr</p>
+    <p id="before">{product.beforeprice}kr</p>
   </div>
-  <h3 class="navtext">Brew York</h3>
-  <h4 class="navtext">Maris the otter</h4>
-  <p class="subtle">3,9% English bitter</p>
+  <h3 class="navtext">{product.brand}</h3>
+  <h4 class="navtext">{product.title}</h4>
+  <p class="subtle">{product.alcoholperc} English bitter</p>
 </article>
 
 <style>
@@ -19,6 +19,10 @@ const { product } = Astro.props;
     padding: 1rem;
     max-width: 40vw;
     max-height: 80vw;
+  }
+  div {
+    display: flex;
+    margin-bottom: 16px;
   }
 div {
   display: flex;
@@ -44,3 +48,10 @@ font-weight: 700;
   
 </style>
 
+  #before {
+    text-decoration: line-through;
+  }
+  .subtle {
+    margin-top: 6px;
+  }
+</style>
