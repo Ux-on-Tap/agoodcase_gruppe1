@@ -1,0 +1,52 @@
+---
+const {product} = Astro.props;
+---
+
+<section>
+
+<img src={product.images} alt="">
+<article>
+<div>
+    <h2>{product.brand}</h2>
+    <h3>{product.title}</h3>
+    <p>Bedst før: {product.bestbefore}</p>
+    <p>{product.alcoholperc}</p>
+    <p>Lagerstatus</p>
+</div>
+<div>
+<h3>Smagen</h3>
+<p>{product.description}</p>
+</div>
+
+<div>
+    <h3>Øllens farve (SRM)</h3>
+    <img src="" alt="">
+    <p>pil her</p>
+    <p>Untapped rating: {product.rating}</p>
+</div>
+
+<div>
+    <p>1 stk.</p>
+<div>
+    <p>Besparelse i kroner</p>
+    <p>{product.price} DKK/stk.</p>
+</div>
+<p>{product.beforeprice} DKK (vejl. markedspris)</p>
+</div>
+
+<div>
+    <p>6 stk.</p>
+<div>
+    <p>Besparelse i kroner</p>
+    <p>{product.pricepack} DKK/stk.</p>
+</div>
+<div>
+<p>{product.beforepricepack} DKK (vejl. markedspris)</p>
+<p>Pris i alt</p>
+</div>
+</div>
+<p>Knap her</p>
+</article>
+
+</section>
+

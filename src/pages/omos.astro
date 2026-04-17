@@ -3,10 +3,21 @@
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
 import "../css/custom.css";
+import ProductDetails from "../components/ProductDetails.astro";
+
+const endpoint =
+  "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?select=*";
+
+const options = {
+  headers: { apikey: "sb_publishable_vji-RnXHn3KkTNJ4KqYoxA_HzS1mbaj" },
+};
+
+const data = await fetch(endpoint, options).then((response) => response.json());
 ---
 <Layout>
   <h1>omos</h1>
   <section>
     <p>jeg har lavet om os siden</p>
   </section>
+  {data.map((product) => <ProductDetails {product} />)}
 </Layout>
