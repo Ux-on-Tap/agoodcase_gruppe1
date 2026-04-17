@@ -5,8 +5,7 @@
 
 @font-face {
   font-family: "InstrumentSansItalic";
-  src: url("/fonts/InstrumentSans-Italic-VariableFont_wdth,wght.woff2")
-    format("woff2");
+  src: url("/fonts/InstrumentSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
 }
 
 @font-face {
