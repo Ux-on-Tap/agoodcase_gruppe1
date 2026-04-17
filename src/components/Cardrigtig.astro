@@ -24,16 +24,29 @@ const { product } = Astro.props;
     display: flex;
     margin-bottom: 16px;
   }
+div {
+  display: flex;
+  margin-bottom: 16px;
+}
 
-  div p {
-    margin-right: 16px;
-    font-family: var(--instrument);
-  }
+div p {
+  margin-right: 16px;
+  font-family: var(--instrument);
+}
 
-  #now {
-    color: var(--primary);
-    font-weight: 700;
-  }
+#now {
+color: var(--primary);
+font-weight: 700;
+}
+
+#before {
+  text-decoration: line-through;
+}
+.subtle {
+  margin-top: 6px;
+}
+  
+</style>
 
   #before {
     text-decoration: line-through;
