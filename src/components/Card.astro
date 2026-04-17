@@ -11,7 +11,40 @@ const text2 = Astro.props.text2;
   <!-- Her indsætter vi billedstien fra prop'en img, tag og text. -->
   <img src={img} />
   <h3>{tag}</h3>
-  <p>{text1}</p>
+  <p id="article_text_bold">{text1}</p>
   <p>{text2}</p>
-  <slot />
+  <div class="button_article"><slot /></div>
 </article>
+
+<style>
+  article {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button_article {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  img {
+    border-radius: 6px;
+    margin-bottom: 1.3rem;
+  }
+
+  h3 {
+    margin-bottom: 0.56rem;
+  }
+
+  p {
+    margin-bottom: 1.3rem;
+  }
+
+  #article_text_bold {
+    font-weight: bold;
+  }
+</style>
