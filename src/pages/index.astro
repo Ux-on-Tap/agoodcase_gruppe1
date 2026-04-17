@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
 import "../css/general.css";
+import Cardrigtig from "../components/Cardrigtig.astro";
 ---
 
 <Layout>
@@ -15,4 +16,14 @@ import "../css/general.css";
     ]}
     tag={"GOD STEMNING,\nGOD SAMVITTIGHED"}
   />
+<Cardrigtig></Cardrigtig>
+
+  <!-- <section>
+    <h2>kort sektion</h2> -->
+  <!-- Her bruger vi Card-komponenten som et HTML-tag. -->
+  <!-- img, tag og text er props, altså værdier vi sender videre til Card. -->
+  <!-- <Card img="/imgs/beer1.png" tag="gratis" text="bedste øl på markedet" />
+    <Card img="/imgs/beer2.png" tag="dyr" text="værste øl på markedet" />
+    <Card img="/imgs/beer3.png" tag="billig" text="trentemøller på markedet" />
+  </section> -->
 </Layout>
