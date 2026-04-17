@@ -55,12 +55,14 @@ li {
   font-family: var(--asapmedium);
   font-size: var(--nav-title-size-mobile);
   letter-spacing: 10%;
+  text-transform: uppercase;
 }
 
 .navtext {
   font-family: var(--asaplight);
   font-size: var(--nav-size-mobile);
   letter-spacing: 2%;
+  text-transform: uppercase;
 }
 
 /********* Burger menu ************/

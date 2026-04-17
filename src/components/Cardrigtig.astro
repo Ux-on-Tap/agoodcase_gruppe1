@@ -5,23 +5,42 @@ const { product } = Astro.props;
 <article>
   <img src="../../public/imgs/beer1.png" alt="">
   <div>
-    <p>39,75 DKK</p>
-    <p>55,95 DKK</p>
+    <p id="now">39,75 DKK</p>
+    <p id="before">55,95 DKK</p>
   </div>
   <h3 class="navtext">Brew York</h3>
   <h4 class="navtext">Maris the otter</h4>
-  <p>3,9% English bitter</p>
+  <p class="subtle">3,9% English bitter</p>
 </article>
 
 <style>
   article {
     border: solid 1px;
     padding: 1rem;
-    max-width: 15vw;
+    max-width: 40vw;
+    max-height: 80vw;
   }
+div {
+  display: flex;
+  margin-bottom: 16px;
+}
 
-  img {
-    max-width: 100%;
-  }
+div p {
+  margin-right: 16px;
+  font-family: var(--instrument);
+}
+
+#now {
+color: var(--primary);
+font-weight: 700;
+}
+
+#before {
+  text-decoration: line-through;
+}
+.subtle {
+  margin-top: 6px;
+}
+  
 </style>
 
