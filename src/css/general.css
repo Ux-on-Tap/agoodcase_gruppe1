@@ -104,12 +104,14 @@ nav.active .menu {
   top: 9rem;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   height: calc(100vh - 9rem);
+
 }
 
 nav.active .menu li {
   margin: 10px 0;
+
 }
 
 nav.active .menu a {
@@ -125,6 +127,7 @@ header {
   padding: 0 2.92rem;
   background-color: #ffffff;
   height: 9rem;
+  z-index: 300;
 }
 
 .logo img {

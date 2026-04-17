@@ -3,23 +3,42 @@ const { product } = Astro.props;
 ---
 
 <article>
-  <img
-    src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
-    alt="
-    produktbillede"
-  />
-  <h3>{product.productdisplayname}</h3>
-  <p>kr.{product.price},-</p>
+  <img src={product.images} />
+  <div>
+    <p id="now">{product.price}kr</p>
+    <p id="before">{product.beforeprice}kr</p>
+  </div>
+  <h3 class="navtext">{product.brand}</h3>
+  <h4 class="navtext">{product.title}</h4>
+  <p class="subtle">{product.alcoholperc} English bitter</p>
 </article>
 
 <style>
   article {
     border: solid 1px;
     padding: 1rem;
+    max-width: 40vw;
+    max-height: 80vw;
+  }
+  div {
+    display: flex;
+    margin-bottom: 16px;
   }
 
-  img {
-    max-width: 100%;
+  div p {
+    margin-right: 16px;
+    font-family: var(--instrument);
+  }
+
+  #now {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  #before {
+    text-decoration: line-through;
+  }
+  .subtle {
+    margin-top: 6px;
   }
 </style>
-

@@ -3,6 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
 import "../css/general.css";
 ---
 
@@ -14,5 +15,13 @@ import "../css/general.css";
       { src: "/imgs/greensquarehero.webp", alt: "grøn firkant" },
     ]}
     tag={"GOD STEMNING,\nGOD SAMVITTIGHED"}
+  />
+
+  <Card
+    img="/imgs/heroimg.webp"
+    tag="Vi giver specialøl en ny chance"
+    text1=" og unge med udfordringer en vej ind til arbejdslivet. 
+Din vej til billig overskudsøl og en god gerning.  Vi tager socialt ansvar og skaber muligheder for unge med udfordringer  med en praktikplads på os. Samtidig opkøber vi restpartier af specialøl, som du får til favorable priser. "
+    text2="Læs mere om vores filosofi her →"
   />
 </Layout>
