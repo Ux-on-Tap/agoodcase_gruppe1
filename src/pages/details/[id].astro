@@ -2,6 +2,7 @@
 //@ts-nocheck
 import Layout from "../../layouts/Layout.astro";
 import ProductDetails from "../../components/ProductDetails.astro";
+import AddToBasket from "../../components/AddToBasket.astro";
 export async function getStaticPaths() {
   const endpoint =
     "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?select=*";
@@ -65,7 +66,7 @@ const { product } = Astro.props;
           <p>Pris DKK total</p>
         </div>
       </div>
-      <p>Knap her</p>
+      <AddToBasket></AddToBasket>
     </article>
   </section>
 </Layout>

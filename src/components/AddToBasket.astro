@@ -1,0 +1,56 @@
+---
+
+---
+
+<div class="btn">
+<select class="stk" name="stk" id="stk">
+<option value="6">6 stk.</option>
+<option value="1">1 stk.</option>
+</select>
+<div class="add">
+Føj til kurv
+</div>
+</div>
+
+<style>
+    select {
+        color: var(--black);
+        border: none;
+        background-color: var(--white);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        padding: 0.1rem;
+        cursor: pointer;
+    }
+
+    .add {
+        color: var(--white);
+        background-color: var(--primary);
+        border: none;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding: 0.1rem 0.2rem;
+        cursor: pointer;
+    }
+
+    .add:hover {
+        color: var(--primary);
+        background-color: var(--white);
+    }
+
+    .btn {
+        border: solid 1px var(--primary);
+        border-radius: 6px;
+        font-family: var(--instrument);
+        font-size: var(--h4-size-mobile);
+        display: flex;
+        background-color: var(--white);
+        width: fit-content;
+    }
+
+    @media (min-width: 800px) {
+        .btn, select {
+            font-size: var(--h4-size-desk);
+        }
+    }
+</style>

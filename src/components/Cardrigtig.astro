@@ -1,5 +1,6 @@
 ---
 const { product } = Astro.props;
+import AddToBasket from "./AddToBasket.astro";
 ---
 
 <a href=`details/${product.handle}`>
@@ -12,6 +13,7 @@ const { product } = Astro.props;
     <h3 class="navtext">{product.brand}</h3>
     <h4 class="navtext">{product.title}</h4>
     <p class="subtle">{product.alcoholperc}% {product.category}</p>
+    <AddToBasket></AddToBasket>
   </article>
 </a>
 
@@ -57,6 +59,7 @@ const { product } = Astro.props;
   }
   .subtle {
     margin-top: 6px;
+    margin-bottom: 12px;
   }
 
 @media (min-width: 800px) {
