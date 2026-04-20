@@ -14,19 +14,18 @@ export async function getStaticPaths() {
 
   return data.map((product) => {
     return {
-      params: { id: product.id.toString() },
+      params: { id: product.handle },
       props: { product },
     };
   });
 }
 
-const { id } = Astro.params;
 const { product } = Astro.props;
 ---
 
 <Layout>
   <section>
-    <img src={product.images} alt="" />
+    <img src={product.images} alt="produktbillede" />
     <article>
       <div class="brandsection">
         <h2>{product.brand}</h2>
