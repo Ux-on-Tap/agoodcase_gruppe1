@@ -28,11 +28,12 @@ const { product } = Astro.props;
   <section>
     <img src={product.images} alt="produktbillede" />
     <article>
+      <div class="left">
       <div class="brandsection">
         <h2>{product.brand}</h2>
         <h3>{product.title}</h3>
         <p>Bedst før: {product.bestbefore}</p>
-        <p>{product.alcoholperc}% type øl</p>
+        <p>{product.alcoholperc}% {product.category}</p>
         <p class="green">Lagerstatus</p>
       </div>
       <div class="tastesection">
@@ -43,11 +44,13 @@ const { product } = Astro.props;
         <p id="arrow">pil her</p>
         <h4>Untapped rating: {product.rating}</h4>
       </div>
+      </div>
 
+      <div class="right">
       <div class="pricesection">
         <p class="green">1 stk.</p>
         <div class="pricetop green">
-          <p>Besparelse i kroner</p>
+          <p>Besparelse</p>
           <p>{product.price} DKK/stk.</p>
         </div>
         <div class="pricebottom">
@@ -58,15 +61,18 @@ const { product } = Astro.props;
       <div class="pricesection">
         <p class="green">6 stk.</p>
         <div class="pricetop green">
-          <p>Besparelse i kroner</p>
-          <p>{product.pricepack} DKK/stk.</p>
+          <p>Besparelse</p>
+          <p>{product.price} DKK/stk.</p>
         </div>
         <div class="pricebottom">
           <p class="vejl">{product.beforepricepack} DKK (vejl. markedspris)</p>
-          <p>Pris DKK total</p>
+          <p>{product.pricepack} DKK total</p>
         </div>
       </div>
+      <div id="knap">
       <AddToBasket></AddToBasket>
+      </div>
+      </div>
     </article>
   </section>
 </Layout>
@@ -126,4 +132,31 @@ const { product } = Astro.props;
     color: var(--grey);
     text-decoration: line-through;
   }
+
+@media (min-width: 800px) {
+  article {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 64px;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+
+#knap {
+  display: flex;
+  height: stretch;
+  justify-content: end;
+  align-items: end;
+}
+
+}
+
 </style>
