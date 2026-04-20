@@ -23,8 +23,13 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <style>
   section {
+    background-image: url(/public/imgs/seamless_grid2.svg);
+    background-size: contain;
+    background-repeat: repeat-y;
+    width: 90vw;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    border: solid 3px var(--grey);
+    margin: auto;
   }
 </style>
