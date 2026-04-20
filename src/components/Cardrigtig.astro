@@ -11,13 +11,17 @@ const { product } = Astro.props;
     </div>
     <h3 class="navtext">{product.brand}</h3>
     <h4 class="navtext">{product.title}</h4>
-    <p class="subtle">{product.alcoholperc} English bitter</p>
+    <p class="subtle">{product.alcoholperc}% {product.category}</p>
   </article>
 </a>
 
 <style>
+  a {
+    color: var(--black);
+    text-decoration: none;
+  }
+  
   article {
-    border: solid 1px;
     padding: 1rem;
     max-width: 40vw;
     max-height: 80vw;
@@ -54,4 +58,12 @@ const { product } = Astro.props;
   .subtle {
     margin-top: 6px;
   }
+
+@media (min-width: 800px) {
+  article {
+    max-width: 20vw;
+    max-height: 36vw;
+  }
+}
+
 </style>
