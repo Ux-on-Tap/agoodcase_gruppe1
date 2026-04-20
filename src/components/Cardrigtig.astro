@@ -1,7 +1,7 @@
 ---
 const { product } = Astro.props;
 ---
-
+<a href="details/${product.id}">
 <article>
   <img src={product.images} />
   <div>
@@ -12,6 +12,7 @@ const { product } = Astro.props;
   <h4 class="navtext">{product.title}</h4>
   <p class="subtle">{product.alcoholperc} English bitter</p>
 </article>
+</a>
 
 <style>
   article {
