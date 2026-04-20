@@ -1,0 +1,14 @@
+<svg width="750" height="250" viewBox="0 0 750 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_1534_4241" fill="white">
+<path d="M0 0H250V250H0V0Z"/>
+</mask>
+<path d="M250 250V253H253V250H250ZM250 0H247V250H250H253V0H250ZM250 250V247H0V250V253H250V250Z" fill="#A4A4A4" mask="url(#path-1-inside-1_1534_4241)"/>
+<mask id="path-3-inside-2_1534_4241" fill="white">
+<path d="M250 0H500V250H250V0Z"/>
+</mask>
+<path d="M500 250V253H503V250H500ZM500 0H497V250H500H503V0H500ZM500 250V247H250V250V253H500V250Z" fill="#A4A4A4" mask="url(#path-3-inside-2_1534_4241)"/>
+<mask id="path-5-inside-3_1534_4241" fill="white">
+<path d="M500 0H750V250H500V0Z"/>
+</mask>
+<path d="M750 250V247H500V250V253H750V250Z" fill="#A4A4A4" mask="url(#path-5-inside-3_1534_4241)"/>
+</svg>

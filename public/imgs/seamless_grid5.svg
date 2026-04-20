@@ -1,0 +1,22 @@
+<svg width="1250" height="250" viewBox="0 0 1250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_1385_286" fill="white">
+<path d="M0 0H250V250H0V0Z"/>
+</mask>
+<path d="M250 250V253H253V250H250ZM250 0H247V250H250H253V0H250ZM250 250V247H0V250V253H250V250Z" fill="#A4A4A4" mask="url(#path-1-inside-1_1385_286)"/>
+<mask id="path-3-inside-2_1385_286" fill="white">
+<path d="M250 0H500V250H250V0Z"/>
+</mask>
+<path d="M500 250V253H503V250H500ZM500 0H497V250H500H503V0H500ZM500 250V247H250V250V253H500V250Z" fill="#A4A4A4" mask="url(#path-3-inside-2_1385_286)"/>
+<mask id="path-5-inside-3_1385_286" fill="white">
+<path d="M500 0H750V250H500V0Z"/>
+</mask>
+<path d="M750 250V253H753V250H750ZM750 0H747V250H750H753V0H750ZM750 250V247H500V250V253H750V250Z" fill="#A4A4A4" mask="url(#path-5-inside-3_1385_286)"/>
+<mask id="path-7-inside-4_1385_286" fill="white">
+<path d="M750 0H1000V250H750V0Z"/>
+</mask>
+<path d="M1000 250V253H1003V250H1000ZM1000 0H997V250H1000H1003V0H1000ZM1000 250V247H750V250V253H1000V250Z" fill="#A4A4A4" mask="url(#path-7-inside-4_1385_286)"/>
+<mask id="path-9-inside-5_1385_286" fill="white">
+<path d="M1000 0H1250V250H1000V0Z"/>
+</mask>
+<path d="M1250 250V247H1000V250V253H1250V250Z" fill="#A4A4A4" mask="url(#path-9-inside-5_1385_286)"/>
+</svg>
