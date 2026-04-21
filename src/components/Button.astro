@@ -1,11 +1,13 @@
 ---
 const title = Astro.props.title;
 const variant = Astro.props.variant;
+
 ---
 <button class={variant}><p>{title}</p></button>
+
 <!-- componenter styles i deres eget component herunder er bare placeholder styling -->
 <style>
-  button {
+  /* button {
     padding: 1rem 2rem;
     border-radius: 10px;
   }
@@ -15,4 +17,33 @@ const variant = Astro.props.variant;
   .secondary {
     background-color: lightcoral;
   }
+ */
+
+:root {
+  --primary: #007900;
+  --white: #f8f7f7;
+}
+button {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid transparent; /* 👈 vigtig */
+}
+
+
+.primary:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+
+
 </style>

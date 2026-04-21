@@ -45,9 +45,13 @@ import Button from "../components/Button.astro";
     <section class="footer-grid">
       <div class="footer-column">
         <div class="block">
-          <h2>KONTAKT OS</h2>
+          
+       
+             <h2 class="navtext">KONTAKT OS</h2>
+          <div class="contact_spacing">
           <p>Telefon: +45 30 45 99 90</p>
           <p>Mail: info@agoodcase.dk</p>
+          </div>
 
           <p>
             A Good Case ApS<br />
@@ -58,7 +62,7 @@ import Button from "../components/Button.astro";
         </div>
 
         <div class="block">
-          <h2>AGOODCASE.DK</h2>
+             <h2 class="navtext">AGOODCASE.DK</h2>
           <ul>
             <li>Om os</li>
             <li>Handelsbetingelser</li>
@@ -76,24 +80,31 @@ import Button from "../components/Button.astro";
 
       <div class="footer-column">
         <div class="block">
-          <h2>ÅBNINGSTIDER</h2>
+      <h2 class="navtext">ÅBNINGSTIDER</h2>
+          <div class="aabningstider_spaceing">
           <p>
             Lagersalg og afhentning:<br />
             Onsdag-Fredag:<br />
             kl. 10:00 - 17:00
-          </p>
-
+          </p> </div>
+<div class="aabningstider_spaceing">
           <p>
             Tlf åbent alle hverdage<br />
             kl. 9:00 - 12:00
           </p>
+          </div>
+         
         </div>
 
         <div class="block">
-          <h2>NYHEDSBREV</h2>
+          <h2 class="navtext">NYHEDSBREV</h2>
+          <div class="tilbud_p">
           <p>Få en masse spændende tilbud - lige til døren.</p>
+          </div>
 
-          <button>Abonnér her</button><br />
+     <Button title="Abonnér" variant="primary" />
+
+ <div class="footer-utility">       
           <img class=aldersgraenseimg
             src="/public/imgs/aldersgraense.webp"
             alt="Aldersgrænse 16 og 18"
@@ -121,6 +132,7 @@ import Button from "../components/Button.astro";
           </div>
         </div>
       </div>
+      </div>  
     </section>
 
     <!-- Her er min footer
@@ -143,7 +155,7 @@ import Button from "../components/Button.astro";
   }
 </script>
 
-/* FOOTER */
+
 <style>
   footer {
     background-color: #ffffff;
@@ -168,11 +180,22 @@ import Button from "../components/Button.astro";
   
   }
 
+  .contact_spacing {
+    padding-bottom: 15px;
+  }
+
+
+  .footer-utility{
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  }
+
 .aldersgraenseimg {
   width: 200px;
   height: 200px;
   padding: 15px
-
 }
 
 
@@ -180,8 +203,6 @@ import Button from "../components/Button.astro";
   display: flex;
   justify-content: center;
   padding: 15px
-
-
 }
 
 .socials {
@@ -195,7 +216,31 @@ import Button from "../components/Button.astro";
 }
 
 .payments{
-   width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 60px;
 }
+
+.block ul {
+  list-style: none;
+  padding: 0;   
+  margin: 0;   
+  line-height: 1.6;
+
+}
+.aabningstider_spaceing 
+.tilbud_p {
+padding-bottom: 15px;
+
+}
+
+
+/* *---------stregen under H----------------* */
+.block h2 {
+  border-bottom: 1px solid #0c0c0c; 
+  width: 200px;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+
 </style>
