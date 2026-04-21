@@ -3,7 +3,6 @@
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
 import Cardrigtig from "../components/Cardrigtig.astro";
-import Filterbar from "../components/Filterbar.astro";
 const endpoint =
   "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?select=*";
 
@@ -18,16 +17,16 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   <h2>Shop</h2>
 <div>
 <select name="type" id="type">
-    <option value="Øl type" class="typebtn">Øl type</option>
-    <option value="alkoholfri" class="typebtn">Alkoholfri</option>
-    <option value="doubleipa" class="typebtn">Double IPA</option>
-    <option value="ipa" class="typebtn">IPA</option>
-    <option value="lager" class="typebtn">Lager</option>
-    <option value="lyseol" class="typebtn">Lyse øl</option>
-    <option value="morkeol" class="typebtn">Mørke øl</option>
-    <option value="pilsner" class="typebtn">Pilsner</option>
-    <option value="sessionipa" class="typebtn">Session IPA</option>
-    <option value="tripleipa" class="typebtn">Triple IPA</option>
+    <option value="alletyper" class="typebtn">Øl type</option>
+    <option value="Alkoholfri" class="typebtn">Alkoholfri</option>
+    <option value="Double IPA" class="typebtn">Double IPA</option>
+    <option value="IPA" class="typebtn">IPA</option>
+    <option value="Lager" class="typebtn">Lager</option>
+    <option value="Lyse øl" class="typebtn">Lyse øl</option>
+    <option value="Mørke øl" class="typebtn">Mørke øl</option>
+    <option value="Pilsner" class="typebtn">Pilsner</option>
+    <option value="Session IPA" class="typebtn">Session IPA</option>
+    <option value="Triple IPA" class="typebtn">Triple IPA</option>
 </select>
 <select name="bryghus" id="bryghus">
     <option value="allebryghus" class="brandbtn">Bryghus</option>
@@ -43,9 +42,9 @@ const data = await fetch(endpoint, options).then((response) => response.json());
     <option value="Åben" class="brandbtn">Åben</option>
 </select>
 <select name="lagerstatus" id="lagerstatus">
-    <option value="">Lagerstatus</option>
-    <option value="true">På lager</option>
-    <option value="false">Udsolgt</option>
+    <option value="bothlager">Lagerstatus</option>
+    <option value="TRUE">På lager</option>
+    <option value="FALSE">Udsolgt</option>
 </select>
 <select name="sorter" id="sorter">
     <option value="">Sortér</option>
@@ -93,12 +92,13 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 </style>
 
 <script>
-  document.querySelector("#bryghus").addEventListener("change", filter);
 
-  function filter(e) {
+  // Script til filtrering efter bryghus
+  document.querySelector("#bryghus").addEventListener("change", filterbryg);
+
+  function filterbryg(e) {
     const cards = document.querySelectorAll(".pcard");
     const valgtbrand = e.target.value;
-console.log (e.target)
     cards.forEach((card) => {
       if (card.dataset.brand == valgtbrand || valgtbrand == "allebryghus") {
         card.classList.remove("hide");
@@ -110,4 +110,41 @@ console.log (e.target)
   
   );
   }
+
+// Script til filtrering efter øl type
+ document.querySelector("#type").addEventListener("change", filtertype);
+
+  function filtertype(e) {
+    const cards = document.querySelectorAll(".pcard");
+    const valgttype = e.target.value;
+    cards.forEach((card) => {
+      if (valgttype == "alletyper" || JSON.parse(card.dataset.category).includes(valgttype)) {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+
+    }
+  
+  );
+  }
+
+  // Script til filtrering efter lagerstatus
+  document.querySelector("#lagerstatus").addEventListener("change", filterlager);
+
+  function filterlager(e) {
+    const cards = document.querySelectorAll(".pcard");
+    const valgtlager = e.target.value;
+    cards.forEach((card) => {
+      if (card.dataset.stock == valgtlager || valgtlager == "bothlager") {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+
+    }
+  
+  );
+  }
+
 </script>
