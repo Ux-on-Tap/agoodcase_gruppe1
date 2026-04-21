@@ -23,8 +23,27 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <style>
   section {
+    background-image: url(/public/imgs/seamless_grid2.svg);
+    background-size: contain;
+    background-repeat: repeat-y;
+    width: 90vw;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    border: solid 3px var(--grey);
+    margin: auto;
   }
+
+  @media (min-width: 800px) {
+  section {
+    background-image: url(/public/imgs/seamless_grid3.svg);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+@media (min-width:1350px) {
+  section {
+    background-image: url(/public/imgs/seamless_grid5.svg);
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
 </style>

@@ -21,16 +21,20 @@ import AddToBasket from "./AddToBasket.astro";
   a {
     color: var(--black);
     text-decoration: none;
+    width: 45vw;
+    height: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   article {
     padding: 1rem;
-    max-width: 40vw;
-    max-height: 80vw;
   }
   div {
     display: flex;
     margin-bottom: 16px;
+    margin-top: 8px;
   }
   div {
     display: flex;
@@ -63,8 +67,15 @@ import AddToBasket from "./AddToBasket.astro";
   }
 
 @media (min-width: 800px) {
-  article {
-    max-width: 20vw;
+  a {
+    width: 30vw;
+    max-height: 60vw;
+  }
+}
+
+@media (min-width: 1350px) {
+   a {
+    width: 18vw;
     max-height: 36vw;
   }
 }
