@@ -15,7 +15,9 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <Layout>
   <h2>Shop</h2>
-<div>
+  <h3 class="navtitle">Filtre</h3>
+  <span id="span1"></span>
+<div class="filtre">
 <select name="type" id="type">
     <option value="alletyper" class="typebtn">Øl type</option>
     <option value="Alkoholfri" class="typebtn">Alkoholfri</option>
@@ -57,14 +59,66 @@ const data = await fetch(endpoint, options).then((response) => response.json());
     <option value="ratingup">Rating - Lav til høj</option>
     <option value="ratingdown">Rating - Høj til lav</option>
 </select>
-
 </div>
+<span id="span2"></span>
   <section>
     {data.map((product) => <Cardrigtig {product} />)}
   </section>
 </Layout>
 
 <style>
+h2, h3 {
+   margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+.filtre {
+  display: flex;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border-top: solid 3px var(--black);
+  border-bottom: solid 3px var(--black);
+}
+span {
+  margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+.filtre select {
+  background-color: transparent;
+  border: none;
+  width: 25%;
+  font-size: var(--text-size-mobile);
+  font-family: var(--instrument);
+  padding: 1rem;
+}
+
+.filtre select:hover, .filtre select:focus {
+  background-color: var(--grey);
+}
+
+#bryghus, #lagerstatus {
+  border-left: solid 3px var(--black);
+}
+
+#lagerstatus {
+  border-right: solid 3px var(--black);
+}
+
+span {
+width: 90vw;
+background-color: var(--true-white);
+height: 10px;
+color: var(--true-white);
+display: block;
+}
+#span1 {
+  border-top: solid 3px var(--black);
+}
+#span2 {
+  border-bottom: solid 3px var(--black);
+}
+
   section {
     background-image: url(/public/imgs/seamless_grid2.svg);
     background-size: contain;
