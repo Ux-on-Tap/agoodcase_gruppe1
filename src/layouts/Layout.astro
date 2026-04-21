@@ -94,21 +94,30 @@ import Button from "../components/Button.astro";
           <p>Få en masse spændende tilbud - lige til døren.</p>
 
           <button>Abonnér her</button><br />
-
-          <img
-            src="/public/imgs/aldersgraense.webp
+          <img class=aldersgraenseimg
+            src="/public/imgs/aldersgraense.webp"
             alt="Aldersgrænse 16 og 18"
           />
 
-          <div class="socials">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">TikTok</a>
-          </div>
+<div class="socials-container">
+  <div class="socials">
+    <a href="#">
+      <img src="/public/imgs/facebook.webp" alt="facebook" />
+    </a>
+    <a href="#">
+      <img src="/public/imgs/instagram.webp" alt="instagram" />
+    </a>
+    <a href="#">
+      <img src="/public/imgs/linkedin.webp" alt="LinkedIn" />
+    </a>
+    <a href="#">
+      <img src="/public/imgs/untappd.webp" alt="Untappd" />
+    </a>
+  </div>
+</div>
 
           <div class="payments">
-            <img src="/public/imgs/paymentmethods.webp" alt="Betalingsikoner" />
+            <img src="/public/imgs/payment.webp" alt="Betalingsikoner" />
           </div>
         </div>
       </div>
@@ -145,6 +154,7 @@ import Button from "../components/Button.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    padding: 28px
   }
 
   .footer-column {
@@ -155,5 +165,37 @@ import Button from "../components/Button.astro";
 
   .block {
     margin-bottom: 2rem;
+  
   }
+
+.aldersgraenseimg {
+  width: 200px;
+  height: 200px;
+  padding: 15px
+
+}
+
+
+.socials-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px
+
+
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+}
+
+.socials img {
+  width: 25px;
+  height: 25px;
+}
+
+.payments{
+   width: 100px;
+  height: 30px;
+}
 </style>
