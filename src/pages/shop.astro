@@ -15,13 +15,112 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <Layout>
   <h2>Shop</h2>
-
+  <h3 class="navtitle">Filtre</h3>
+  <span id="span1"></span>
+<div class="filtre">
+<select name="type" id="type">
+    <option value="alletyper" class="typebtn">Øl type</option>
+    <option value="Alkoholfri" class="typebtn">Alkoholfri</option>
+    <option value="Double IPA" class="typebtn">Double IPA</option>
+    <option value="IPA" class="typebtn">IPA</option>
+    <option value="Lager" class="typebtn">Lager</option>
+    <option value="Lyse øl" class="typebtn">Lyse øl</option>
+    <option value="Mørke øl" class="typebtn">Mørke øl</option>
+    <option value="Pilsner" class="typebtn">Pilsner</option>
+    <option value="Session IPA" class="typebtn">Session IPA</option>
+    <option value="Triple IPA" class="typebtn">Triple IPA</option>
+</select>
+<select name="bryghus" id="bryghus">
+    <option value="allebryghus" class="brandbtn">Bryghus</option>
+    <option value="Brew York" class="brandbtn">Brew York</option>
+    <option value="Brewsketeers" class="brandbtn">BrewSketeers</option>
+    <option value="Charro" class="brandbtn">Charro</option>
+    <option value="Dragonfly" class="brandbtn">Dragonfly</option>
+    <option value="Fermenterarna" class="brandbtn">Fermenterarna</option>
+    <option value="lysølsfabrikken" class="brandbtn">Lysølsfabrikken</option>
+    <option value="Mash Gang" class="brandbtn">Mash Gang</option>
+    <option value="Must Kuld" class="brandbtn">Must Kuld</option>
+    <option value="Stangen" class="brandbtn">Stangen</option>
+    <option value="Åben" class="brandbtn">Åben</option>
+</select>
+<select name="lagerstatus" id="lagerstatus">
+    <option value="bothlager">Lagerstatus</option>
+    <option value="true">På lager</option>
+    <option value="false">Udsolgt</option>
+</select>
+<select name="sorter" id="sorter">
+    <option value="">Sortér</option>
+    <option value="titleaz">Navn - A-Å</option>
+    <option value="titleza">Navn - Å-A</option>
+    <option value="priceup">Pris - Lav til høj</option>
+    <option value="pricedown">Pris - Høj til lav</option>
+    <option value="alcoholpercup">Alkoholprocent - Lav til høj</option>
+    <option value="alcoholpercdown">Alkoholprocent - Høj til lav</option>
+    <option value="ratingup">Rating - Lav til høj</option>
+    <option value="ratingdown">Rating - Høj til lav</option>
+</select>
+</div>
+<span id="span2"></span>
   <section>
     {data.map((product) => <Cardrigtig {product} />)}
   </section>
 </Layout>
 
 <style>
+h2, h3 {
+   margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+.filtre {
+  display: flex;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border-top: solid 2px var(--black);
+  border-bottom: solid 2px var(--black);
+}
+span {
+  margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+.filtre select {
+  background-color: transparent;
+  border: none;
+  width: 25%;
+  font-size: var(--text-size-mobile);
+  font-family: var(--instrument);
+  padding: 1rem;
+}
+
+.filtre select:hover, .filtre select:focus {
+  background-color: var(--grey);
+}
+
+#bryghus, #lagerstatus {
+  border-left: solid 2px var(--black);
+}
+
+#lagerstatus {
+  border-right: solid 2px var(--black);
+}
+
+span {
+width: 90vw;
+background-color: var(--true-white);
+height: 10px;
+color: var(--true-white);
+display: block;
+}
+#span1 {
+  border-top: solid 2px var(--black);
+  margin-top: 16px;
+}
+#span2 {
+  border-bottom: solid 2px var(--black);
+  margin-bottom: 32px;
+}
+
   section {
     background-image: url(/public/imgs/seamless_grid2.svg);
     background-size: contain;
@@ -47,3 +146,61 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   }
 }
 </style>
+
+<script>
+
+  // Script til filtrering efter bryghus
+  document.querySelector("#bryghus").addEventListener("change", filterbryg);
+
+  function filterbryg(e) {
+    const cards = document.querySelectorAll(".pcard");
+    const valgtbrand = e.target.value;
+    cards.forEach((card) => {
+      if (card.dataset.brand == valgtbrand || valgtbrand == "allebryghus") {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+
+    }
+  
+  );
+  }
+
+// Script til filtrering efter øl type
+ document.querySelector("#type").addEventListener("change", filtertype);
+
+  function filtertype(e) {
+    const cards = document.querySelectorAll(".pcard");
+    const valgttype = e.target.value;
+    cards.forEach((card) => {
+      if (valgttype == "alletyper" || JSON.parse(card.dataset.category).includes(valgttype)) {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+
+    }
+  
+  );
+  }
+
+  // Script til filtrering efter lagerstatus
+  document.querySelector("#lagerstatus").addEventListener("change", filterlager);
+
+  function filterlager(e) {
+    const cards = document.querySelectorAll(".pcard");
+    const valgtlager = e.target.value;
+    cards.forEach((card) => {
+      if (card.dataset.stock == valgtlager || valgtlager == "bothlager") {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+
+    }
+  
+  );
+  }
+
+</script>
