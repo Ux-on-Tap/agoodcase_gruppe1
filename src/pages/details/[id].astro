@@ -26,7 +26,7 @@ const { product } = Astro.props;
 
 <Layout>
   <section>
-    <img src={product.images} alt="produktbillede" />
+    <img id="productimg" src={product.images} alt="produktbillede" />
     <article>
       <div class="left">
       <div class="brandsection">
@@ -41,7 +41,20 @@ const { product } = Astro.props;
         <p>{product.description}</p>
         <h4>Øllens farve (SRM)</h4>
         <img src="../public/imgs/beerscale.svg" alt="Øl skala" />
-        <p id="arrow">pil her</p>
+        <div id="arrowwrap">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        <img class="arrow" src="/public/imgs/pil.svg" alt="">
+        </div>
         <h4>Untapped rating: {product.rating}</h4>
       </div>
       </div>
@@ -78,9 +91,22 @@ const { product } = Astro.props;
 </Layout>
 
 <style>
+
+  section {
+    background-image: url(/public/imgs/seamless_grid13.svg);
+    background-size: contain;
+    background-repeat: repeat-y;
+    width: 90vw;
+    border: solid 3px var(--grey);
+    margin: 64px auto;
+    display: grid;
+  }
+
   article {
     border: solid 3px var(--grey);
     padding: 2rem;
+    background-color: var(--true-white);
+    margin: 32px 32px 32px 32px;
   }
 
   .pricesection {
@@ -114,14 +140,16 @@ const { product } = Astro.props;
     margin-bottom: 8px;
   }
 
-  #arrow {
+  .arrow {
+    width: 1rem;
+  }
+  #arrowwrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 8px;
     margin-bottom: 16px;
-  }
-
-  section {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 6px;
   }
 
   .green {
@@ -138,6 +166,11 @@ const { product } = Astro.props;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 64px;
+    margin: 32px 32px 32px -64px;
+  }
+  #productimg {
+    margin-top: 32px;
+    margin-left: -32px;
   }
 
   section {
