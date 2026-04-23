@@ -1,81 +1,108 @@
 Teknisk dokumentation – [A Good Case]
 
 Om projektet
-Dette projekt er lavet som en del af Tema 8. Vi har lavet et dynamisk website med HTML, CSS og JavaScript, hvor indholdet bliver hentet fra et Rest API.
+Dette projekt er lavet som en del af Tema 9. Vi har lavet et dynamisk website med HTML, CSS og JavaScript, hvor indholdet bliver hentet fra et Rest API.
+
+Vi har kodet dynamisk i Astro, hvor vi har brugt dynamic routes til at lave undersider, hvor sidens indhold bliver hentet som JSON fra Supabase. I Supsebase har vi oprettet vores datastruktur og API. Vi har kodet flere komponenter, herunder bl.a. productcard og anvendt slot elementer.
 
 Sitet består af flere sider, hvor brugeren kan:
 
-se en liste med indhold
+se categorier på forsiden
+se en productliste med indhold
+bruge filtrering eller sortering af produkter
 klikke sig videre til en detaljeside
-bruge filtrering
-udfylde en formular
+se data fra Supabase om produktet
+
 Links
-GitHub repository: [indsæt link]
-GitHub Pages: [indsæt link]
-Figma: [indsæt link]
-Trello: [indsæt link]
+GitHub repository: [https://github.com/Ux-on-Tap/agoodcase_gruppe1]
+Netlify: [https://agoodcasegruppe1.netlify.app/]
+Figma: [https://www.figma.com/design/lqCcmfpasrrMwdNCvPAs4q/T9_team_1_AGC_Figma?node-id=506-2222&t=cZGcdqiC4zpSDkhK-1]
+Figma Prototype: [https://www.figma.com/design/CUTXv5CAjY6iQUYu6Q8Qs6/team1_tema9?node-id=120-181&t=EwRfGoPIP76aNuPz-1]
+Figma Slidedeck: [https://www.figma.com/deck/wflO1GVVCM6ZAKCa9imbkk/A-Good-Case_presentation?node-id=1-42]
+Trello: [https://trello.com/b/BPOMmkdy/t9team1agoodcase]
+
 Projektstruktur
-Projektet er opdelt i HTML, CSS og JavaScript-filer.
+Projektet er opdelt i Astro Pages, Layout, CSS og Components.
 
 project/
-├── index.html
-├── recipelist.html
-├── recipedetails.html
-├── form.html
+├── index.astro
+├── shop.astro
+├── detaljer.astro
+│ └──[id].astro
+├── erhverv.astro
+├── events.astro
+├── omos.astro
 ├── css/
-│ └── style.css
-├── js/
-│ ├── index.js
-│ ├── recipelist.js
-│ ├── recipedetails.js
-│ └── form.js
+│ └── geneal.css
+│ └── custom.css
+├── layouts/
+│ ├── layout.astro
 └── README.md
+
 Filbeskrivelser
-index.html – forsiden
-recipelist.html – viser en liste med data fra API'et
-recipedetails.html – viser detaljer om en valgt opskrift
-form.html – indeholder formularen
-style.css – styrer designet
-JavaScript-filer – styrer det dynamiske indhold på de forskellige sider
+Layout.astro implementerer vores html-skelet på astro pages
+
+index.astro – Bruges til forsiden. Her bliver indhold vist dynamisk, fx kategorier.
+shop.astro – Henter data fra Supabase og viser en liste med produkterne på siden.
+detaljer.astro – Viser detaljer om et valgt produkt
+
+CSS-filerne – styrer designet
+
+Astro-filerne – styrer det dynamiske indhold på de forskellige sider vha. JavaScript i fence
+
+<!-- er i tvivl nedenfor ift. astro og JS -->
+
 Hvordan koden fungerer
-Vi har opdelt JavaScript, så hver side har sin egen fil.
-
-index.js
-Bruges på forsiden. Her bliver indhold vist dynamisk, fx links eller kategorier.
-
-recipelist.js
-Henter data fra Rest API'et og viser en liste med opskrifter på siden.
+Vi har opdelt Astro (Js), så hver side har sin egen fil.
 
 Flow:
 
 Siden loader
-JavaScript kører
+
+<!-- assist fra C? -->
+
+JavaScript/Astro kører
 Data hentes fra Rest API
 Data bliver gennemgået med loop
 HTML bliver indsat i DOM'en
-Brugeren kan klikke på en opskrift
-recipedetails.js
-Bruges til detaljesiden. Den læser et id fra URL'en og henter derefter den rigtige opskrift fra Rest API'et.
+Brugeren kan klikke på et produkt
+detaljer.astro bruges til detaljesiden. Den læser et id fra URL'en og henter derefter den rigtige data fra Supabase.
 
-Det gør det muligt at genbruge den samme HTML-side til mange opskrifter. I stedet for at lave én side per opskrift, bruger vi ét id i URL'en til at vise det rigtige indhold.
-
-form.js
-Styrer formularen og validering af inputfelter.
-
-Denne fil bruges til at sikre, at brugeren udfylder formularen korrekt. Det gør formularen mere brugervenlig og mindsker fejl.
+Det gør det muligt at genbruge den samme HTML-opsætning til alle produkterne. I stedet for at lave én side per produkt, bruger vi ét id i URL'en til at vise det rigtige indhold.
 
 Navngivning
-Vi har navngivet vores filer, variabler og funktioner så de så tydeligt som muligt er selvforklarende.
+Vi har navngivet vores filer, variabler, funktioner og komponenter så de, så tydeligt som muligt, er selvforklarende.
+
+<!-- nået hertil -->
 
 Eksempler på variabler
 const recipeContainer;
 const recipeId;
 const selectedCategory;
+
+<!-- const title = Astro.props.title;
+const variant = Astro.props.variant; -->
+
 Eksempler på funktioner
 fetchRecipes();
 showRecipes();
 showRecipeDetails();
 validateForm();
+
+<!-- den her eller....
+const endpoint =
+  "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?limit=4";
+
+const options = {
+  headers: { apikey: "sb_publishable_vji-RnXHn3KkTNJ4KqYoxA_HzS1mbaj" },
+};
+
+const data = await fetch(endpoint, options).then((response) => response.json()); -->
+
+<!-- ....den her?
+ {data.map((product) => <ProductDetails {product} />)}
+  {data.map((product) => <Cardrigtig {product} />)}-->
+
 Vi har brugt camelCase i JavaScript, fordi det gør koden mere ensartet og lettere at læse.
 
 Kommentarer i koden
@@ -169,7 +196,7 @@ Error handling
 Loading state
 
 Gruppemedlemmer
-Steen I. Sko
-Peter Pedal
-Karsten Lange Løgstrup
-Pia Planlægger
+Camille Elleholm
+Oliver Hartmann
+Annebeth Fauerby
+Te Rahbæk
