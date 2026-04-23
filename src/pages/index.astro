@@ -24,9 +24,14 @@ const data = await fetch(endpoint, options).then((response) => response.json());
       // tern skal erstattes med baggrundsbillede grid 
       { src: "/imgs/herogridmobil.webp", alt: "tern" },
       { src: "/imgs/greensquarehero.webp", alt: "grøn firkant" },
-    ]}
+    ]
+    }
     tag={"GOD STEMNING,\nGOD SAMVITTIGHED"}
   />
+ 
+  <h2 class="navtitle">
+    Vores Craft Beer-koncept består af et stort, skiftende sortiment af kvalitetsøl kombineret med restprodukter, som vi kæmper for ikke må gå til spilde."
+  </h2>
 <!-- *-------------------AB laver subnav -----------* -->
 <section class="udvalg">
   <h2>Vores udvalg</h2>
@@ -57,10 +62,11 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   <section>
     <h2>Nyheder</h2>
 
+    <h2 class="navtitle">Nyheder</h2>
   <section class="nyhedscontainer">
     {data.map((product) => <Cardrigtig {product} />)}
   </section>
-  </section>
+
 
 <section>
   <Artikel
@@ -92,7 +98,6 @@ const data = await fetch(endpoint, options).then((response) => response.json());
  <Artikel
     img="/imgs/gridkoncept.svg"
     tag="Vores Craft Beer-koncept"
-    text1="består af et stort, skiftende sortiment af kvalitetsøl kombineret med restprodukter, som vi kæmper for ikke må gå til spilde."
     text2="Vi samarbejder med faste bryggerier, distributører og grossister både indlands som udlands, hvor vi opkøber øl til vores faste, brede sortiment samt produkter, som kan være tæt på best before-datoen, restpartier, partier, som er taget ud af produktion eller af anden årsag ikke må gå til spilde. 
 Tilsammen sikrer det både gode kvalitetsøl til markedets billigste priser OG en fast minimering af ølspild. Det er et bæredygtigt fællesskab og et win for bryggerierne og grossisterne, win for miljøet og win for dig som kunde."
   >
@@ -103,13 +108,50 @@ Tilsammen sikrer det både gode kvalitetsøl til markedets billigste priser OG e
 
 <style>
 
+ .hero {
+    background-image: url(/public/imgs/seamless_grid13.svg);
+      background-size: contain;
+      background-repeat: repeat-y;
+      width: 90vw;
+      border: solid 3px var(--grey);
+    }
+  
+  .navtitle, .nyhedscontainer {
+         margin-right: 5vw;
+         margin-left: 5vw;
+        }
+
+  .navtitle {
+          margin-bottom: 5vw;
+        }
+
   section {
     display: grid;
     grid-template-columns: 2fr;
     gap: 1rem;
+    justify-content: center;
+    /* mediaquery her hvis order på billeder i grid sektioner 1_2 vice verca */
   }
+
 .nyhedscontainer {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+@media (min-width: 800px) {
+
+h2{
+  display: grid;
+  grid-template-columns: 2fr;
+  gap: 1rem;
+}}
+
+/* .nyhedscontainer {
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+} */
   grid-template-columns: repeat(4,auto);}
   /* mediaquery her hvis order på billeder i grid sektioner 1_2 vice verca */
 
