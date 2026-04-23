@@ -3,7 +3,7 @@ const { product } = Astro.props;
 import AddToBasket from "./AddToBasket.astro";
 ---
 
-<a href=`details/${product.handle}` class="pcard" data-brand={product.brand} data-category={JSON.stringify(product.category)} data-stock={product.stock}>
+<a href=`/details/${product.handle}` class="pcard" data-brand={product.brand} data-category={JSON.stringify(product.category)} data-stock={product.stock}>
   <article>
     <img src={product.images} />
     <div>
