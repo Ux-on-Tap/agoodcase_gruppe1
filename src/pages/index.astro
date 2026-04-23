@@ -7,17 +7,36 @@ import Button from "../components/Button.astro";
 import "../css/general.css";
 import "../css/custom.css";
 import Cardrigtig from "../components/Cardrigtig.astro";
+const endpoint =
+  "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?limit=4";
+
+const options = {
+  headers: { apikey: "sb_publishable_vji-RnXHn3KkTNJ4KqYoxA_HzS1mbaj" },
+};
+
+const data = await fetch(endpoint, options).then((response) => response.json());
 ---
 
 <Layout>
   <Hero
     images={[
       { src: "/imgs/heroimg.webp", alt: "folk hygger" },
+      // tern skal erstattes med baggrundsbillede grid 
       { src: "/imgs/herogridmobil.webp", alt: "tern" },
       { src: "/imgs/greensquarehero.webp", alt: "grøn firkant" },
     ]}
     tag={"GOD STEMNING,\nGOD SAMVITTIGHED"}
   />
+  
+
+  <section>
+    <h2>Nyheder</h2>
+
+  <section class="nyhedscontainer">
+    {data.map((product) => <Cardrigtig {product} />)}
+  </section>
+  </section>
+
 <section>
   <Artikel
     img="/imgs/article_img.webp"
@@ -25,7 +44,7 @@ import Cardrigtig from "../components/Cardrigtig.astro";
     text1="og unge med udfordringer en vej ind til arbejdslivet. "
     text2="Din vej til billig overskudsøl og en god gerning.  Vi tager socialt ansvar og skaber muligheder for unge med udfordringer  med en praktikplads på os. Samtidig opkøber vi restpartier af specialøl, som du får til favorable priser. "
   >
-    <Button title="Vores filosofi →" />
+  <Button title="Vores filosofi →" variant="primary" />
   </Artikel>
 
   <Artikel
@@ -33,7 +52,7 @@ import Cardrigtig from "../components/Cardrigtig.astro";
     tag="Få ølsmagning leveret til døren med en Smagekasse"
     text2="Vi har masser af lækre smagekasser med specialøl fra ind- og udland, som er fra et restparti, har etikettefejl, en lille bule eller er tæt på best before-datoen.  Har du svært ved at vælge? Så tag et kig herunder, for vi har sammensat smagekasser for enhver smag og pengepung."
   >
-    <Button title="Smagekasse →" />
+  <Button title="Smagekasse →" variant="primary" />
   </Artikel>
 
   <Artikel
@@ -41,7 +60,7 @@ import Cardrigtig from "../components/Cardrigtig.astro";
     tag="Skræddersyet ølsmagning til dig"
     text2="Vi tilbyder skræddersyede ølsmagninger til alt fra 10 til 200 personer, med en pris på mellem 150 og 250 kroner pr. person. Du kan selv sætte størrelsen, antallet, stilarterne, eller du kan lade os sammensætte, hvad vi synes er en optimal smagning. Uanset hvad, vil alle ølsmagninger have en ting tilfælles. Nemlig, at ølsmagningerne er sammensat med en bæredygtig tankegange i fokus. "
   >
-    <Button title="Ølsmagning →" />
+  <Button title="Ølsmagning →" variant="primary" /> 
   </Artikel>
 
   
@@ -52,17 +71,20 @@ import Cardrigtig from "../components/Cardrigtig.astro";
     text2="Vi samarbejder med faste bryggerier, distributører og grossister både indlands som udlands, hvor vi opkøber øl til vores faste, brede sortiment samt produkter, som kan være tæt på best before-datoen, restpartier, partier, som er taget ud af produktion eller af anden årsag ikke må gå til spilde. 
 Tilsammen sikrer det både gode kvalitetsøl til markedets billigste priser OG en fast minimering af ølspild. Det er et bæredygtigt fællesskab og et win for bryggerierne og grossisterne, win for miljøet og win for dig som kunde."
   >
-    <Button title="Vores koncept →" />
+  <Button title="Vores koncept →" variant="primary" />
   </Artikel>
 </section>
 </Layout>
 
 <style>
+
   section {
     display: grid;
     grid-template-columns: 2fr;
     gap: 1rem;
   }
-
+.nyhedscontainer {
+  display: grid;
+  grid-template-columns: repeat(4,auto);}
   /* mediaquery her hvis order på billeder i grid sektioner 1_2 vice verca */
 </style>
