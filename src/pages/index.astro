@@ -32,6 +32,35 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   <h2 class="navtitle">
     Vores Craft Beer-koncept består af et stort, skiftende sortiment af kvalitetsøl kombineret med restprodukter, som vi kæmper for ikke må gå til spilde."
   </h2>
+<!-- *-------------------AB laver subnav -----------* -->
+<section class="udvalg">
+  <h2>Vores udvalg</h2>
+
+  <div class="grid">
+    <div class="type">TYPER</div>
+
+    <div class="col">
+      <a href="#ipa-pale">IPA & PALE ALE</a>
+      <a href="#lager">LAGER & PILSNER</a>
+      <a href="#moerke">MØRKE ØL</a>
+      <a href="#special">LYSE SPECIAL ØL</a>
+      <a href="#alkohol">ALKOHOLFRI</a>
+    </div>
+
+    <div class="col">
+      <a href="#ipa">IPA</a>
+      <a href="#session">SESSION IPA</a>
+      <a href="#double">DOUBLE IPA</a>
+      <a href="#triple">TRIPLE IPA</a>
+        <a href="#tom"></a>
+    </div>
+  </div>
+</section>
+
+  <!-- *-------------------subnav slut -----------* -->
+
+  <section>
+    <h2>Nyheder</h2>
 
     <h2 class="navtitle">Nyheder</h2>
   <section class="nyhedscontainer">
@@ -123,4 +152,77 @@ h2{
   display: grid;
   grid-template-columns: repeat(4,auto);
 } */
+  grid-template-columns: repeat(4,auto);}
+  /* mediaquery her hvis order på billeder i grid sektioner 1_2 vice verca */
+
+
+
+ /* *---------- sub nav -------* */
+.udvalg {
+  padding: 50px 60px;
+  /* background: #f7f7f7; */
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Titel */
+.udvalg h2 {
+  font-size: 56px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  border-top: 6px double #2b2b2b;
+  border-bottom: 6px double #2b2b2b;
+}
+
+/* VENSTRE */
+.type {
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 44px;
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  border-right: 3px solid #2b2b2b;
+}
+
+/* KOLONNER */
+.col {
+  display: grid;
+}
+
+/* Lodret streg mellem kolonner */
+.col:nth-child(2) {
+  border-right: 3px solid #2b2b2b;
+}
+
+/* LINKS */
+.col a {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 25px;
+
+  text-decoration: none;
+  color: #222;
+  font-size: 26px;
+  letter-spacing: 2px;
+
+  border-bottom: 6px double #2b2b2b;
+}
+
+/* Fjern sidste linje */
+.col a:last-child {
+  border-bottom: none;
+}
+
+/* Hover (meget subtil som i design) */
+.col a:hover {
+  background: rgba(0,0,0,0.03);
+}
+
 </style>

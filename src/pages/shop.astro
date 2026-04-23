@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 // Her importerer vi Card-komponenten, så den kan bruges længere nede på siden.
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
@@ -61,7 +62,7 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 </select>
 </div>
 <span id="span2"></span>
-  <section>
+  <section id="plist">
     {data.map((product) => <Cardrigtig {product} />)}
   </section>
 </Layout>
@@ -201,6 +202,70 @@ display: block;
     }
   
   );
+  }
+
+  // Script til sortering efter pris
+
+  document.querySelector("#sorter").addEventListener("change", sorter);
+  
+  function sorter(e) {
+    const value = e.target.value;
+    const container = document.querySelector("#plist");
+    const cards = document.querySelectorAll(".pcard");
+    container.textContent = "";
+    let newList;
+
+    // A-Å
+    if (value == "titleaz") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) =>
+      firstItem.dataset.title.localeCompare(secondItem.dataset.title, "da")
+  );
+
+  // Å-A
+    } else if (value == "titleza") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) =>
+        secondItem.dataset.title.localeCompare(firstItem.dataset.title, "da")
+      );
+
+      // Pris lav-høj
+    } else if (value == "priceup") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => firstItem.dataset.price - secondItem.dataset.price,
+      );
+
+      // Pris høj-lav
+    } else if (value == "pricedown") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => secondItem.dataset.price - firstItem.dataset.price,
+      );
+
+      // Alkoholprocent lav-høj
+    } else if (value == "alcoholpercup") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => firstItem.dataset.alcoholperc - secondItem.dataset.alcoholperc,
+      );
+
+      // Alkoholprocent høj-lav
+    } else if (value == "alcoholpercdown") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => secondItem.dataset.alcoholperc - firstItem.dataset.alcoholperc,
+      );
+
+      // Rating lav-høj
+    } else if (value == "ratingup") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => firstItem.dataset.rating - secondItem.dataset.rating,
+      );
+
+      // Rating høj-lav
+    } else if (value == "ratingdown") {
+      newList=[...cards].sort(
+        (firstItem, secondItem) => secondItem.dataset.rating - firstItem.dataset.rating,
+      );
+    }
+    newList.forEach((card) => container.append(card));
   }
 
 </script>
