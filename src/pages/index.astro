@@ -34,7 +34,7 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   </h2>
 <!-- *-------------------AB laver subnav -----------* -->
 <section class="udvalg">
-  <h2>Vores udvalg</h2>
+  <h2 >Vores udvalg</h2>
 
   <div class="grid">
     <div class="type">TYPER</div>
@@ -44,11 +44,11 @@ const data = await fetch(endpoint, options).then((response) => response.json());
       <a href="#lager">LAGER & PILSNER</a>
       <a href="#moerke">MØRKE ØL</a>
       <a href="#special">LYSE SPECIAL ØL</a>
-      <a href="#alkohol">ALKOHOLFRI</a>
+      <a  href="#alkohol">ALKOHOLFRI</a>
     </div>
 
     <div class="col">
-      <a href="#ipa">IPA</a>
+      <a class="ekstra_streg" href="#ipa">IPA</a>
       <a href="#session">SESSION IPA</a>
       <a href="#double">DOUBLE IPA</a>
       <a href="#triple">TRIPLE IPA</a>
@@ -60,7 +60,7 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   <!-- *-------------------subnav slut -----------* -->
 
   <section>
-    <h2>Nyheder</h2>
+
 
     <h2 class="navtitle">Nyheder</h2>
   <section class="nyhedscontainer">
@@ -152,6 +152,7 @@ Tilsammen sikrer det både gode kvalitetsøl til markedets billigste priser OG e
   justify-items: center;
 }
 
+
 @media (min-width: 800px) {
 
 h2{
@@ -170,72 +171,124 @@ h2{
 
  /* *---------- sub nav -------* */
 .udvalg {
-  padding: 50px 60px;
-  /* background: #f7f7f7; */
+  padding: 30px 20px;
   font-family: 'Oswald', sans-serif;
 }
 
 /* Titel */
 .udvalg h2 {
-  font-size: 56px;
+  font-size: 32px;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-/* GRID */
+/* GRID → mobil = 1 kolonne */
 .grid {
   display: grid;
-  grid-template-columns: 220px 1fr 1fr;
-  border-top: 6px double #2b2b2b;
-  border-bottom: 6px double #2b2b2b;
+  grid-template-columns: 1fr;
+  border-top: 4px double #2b2b2b;
+  border-bottom: 4px double #2b2b2b;
 }
+ .ekstra_streg {
+   border-top: 4px double #2b2b2b;
 
-/* VENSTRE */
+ }
+
 .type {
+  font-family: var(--asapmedium);
+  font-size: var(--nav-title-size-mobile);
+  letter-spacing: 0.1em; 
+  text-transform: uppercase;
+
   color: #2e7d32;
-  font-weight: 700;
-  font-size: 44px;
+
   display: flex;
   align-items: center;
-  padding: 25px;
-  border-right: 3px solid #2b2b2b;
+
+  padding: 15px;
+  border-bottom: 4px double #2b2b2b;
 }
 
-/* KOLONNER */
+/* Kolonner bliver bare stacked */
 .col {
   display: grid;
 }
 
-/* Lodret streg mellem kolonner */
+/* Fjern desktop borders */
 .col:nth-child(2) {
-  border-right: 3px solid #2b2b2b;
+  border-right: none;
 }
 
 /* LINKS */
 .col a {
   display: flex;
   align-items: center;
-  height: 70px;
-  padding: 0 25px;
-
+  height: 60px;
+  padding: 0 100px;
   text-decoration: none;
   color: #222;
-  font-size: 26px;
-  letter-spacing: 2px;
-
-  border-bottom: 6px double #2b2b2b;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-bottom: 4px double #2b2b2b;
 }
 
-/* Fjern sidste linje */
+/* Fjern sidste */
 .col a:last-child {
   border-bottom: none;
 }
 
-/* Hover (meget subtil som i design) */
+/* Hover */
 .col a:hover {
   background: rgba(0,0,0,0.03);
 }
 
+
+
+/* ----desktop---- */
+@media (min-width: 960px) {
+
+   .ekstra_streg {
+    border-top: none;
+  }
+  .udvalg {
+    padding: 50px 60px;
+  }
+
+  .udvalg h2 {
+    font-size: 56px;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    grid-template-columns: 220px 1fr 1fr;
+    border-top: 6px double #2b2b2b;
+    border-bottom: 6px double #2b2b2b;
+  }
+
+  .type {
+    font-size: 44px;
+    padding: 25px;
+    border-right: 3px solid #2b2b2b;
+    border-bottom: none;
+    align-items: center;
+  }
+
+  .col:nth-child(2) {
+    border-right: 3px solid #2b2b2b;
+  }
+
+  .col a {
+    height: 40px;
+    padding: 0 25px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    border-bottom: 6px double #2b2b2b;
+  }
+}
+
+
+
+</style>
 #age-popup {
   position: fixed;
   inset: 0;
