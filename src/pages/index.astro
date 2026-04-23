@@ -104,6 +104,18 @@ Tilsammen sikrer det både gode kvalitetsøl til markedets billigste priser OG e
   <Button title="Vores koncept →" variant="primary" />
   </Artikel>
 </section>
+
+<!-- Aldersverificering popup -->
+ <div id="age-popup">
+  <div id="age-box">
+  <p class="navtitle">Er du fyldt 18 år?</p>
+  <p id="popuptext">Da det her på siden er muligt at købe alkohol, skal du være fyldt 18 for at handle</p>
+  <div id="btn-popup-wrap">
+    <button id="btn-yes">Ja, jeg er fyldt 18 år</button>
+  <button id="btn-no">Nej, jeg er ikke fyldt 18 år</button>
+  </div>
+</div>
+
 </Layout>
 
 <style>
@@ -224,4 +236,82 @@ h2{
   background: rgba(0,0,0,0.03);
 }
 
+#age-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 400;
+  width: 100%;
+}
+
+#age-box {
+  background: var(--true-white);
+  padding: 2rem;
+  max-width: 60vw;
+  height: 33vh;
+  margin: auto;
+  margin-top: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+#popuptext {
+  font-family: var(--instrument);
+  margin-top: 16px;
+}
+
+#btn-popup-wrap {
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+}
+
+#btn-yes, #btn-no {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid transparent;
+  font-family: var(--instrument);
+  font-size: var(--text-size-mobile);
+}
+
+#btn-yes:hover, #btn-no:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+#btn-yes {
+  margin-right: 32px;
+}
+
+
+@media (min-width: 800px) {
+  #btn-yes, #btn-no {
+    font-size: var(--text-size-desk);
+  }
+  }
+
 </style>
+
+<script>
+if (!sessionStorage.getItem("ageVerified")) {
+  document.getElementById("age-popup").style.display = "flex";
+}
+
+document.getElementById("btn-yes").addEventListener("click", () => {
+  sessionStorage.setItem("ageVerified", "true");
+  document.getElementById("age-popup").style.display = "none";
+});
+
+</script>
