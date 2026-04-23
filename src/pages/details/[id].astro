@@ -3,6 +3,8 @@
 import Layout from "../../layouts/Layout.astro";
 import ProductDetails from "../../components/ProductDetails.astro";
 import AddToBasket from "../../components/AddToBasket.astro";
+import Artikel from "../../components/Artikel.astro";
+import Button from "../../components/Button.astro";
 export async function getStaticPaths() {
   const endpoint =
     "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?select=*";
@@ -125,6 +127,20 @@ const { product } = Astro.props;
       </div>
     </article>
   </section>
+  
+    <Artikel
+    img="/imgs/redderimg.webp"
+    tag="Vi giver specialøl en ny chance"
+    text1=""
+    text2="Du vil med dette abonnement få leveret specialøl fra ind- og udland hver måned inden for de fleste aspekter af øllets verden - om du er nybegynder eller har drukket masser af forskellige øl i mange år, kan vi garantere dig at du får lækre smagsoplevelser, som kan åbne eller udvide din horisont inden for øllets verden."
+    ><p>Abonnementskassen består af 12 specialøl (2 af hver), som du med stor sandsynlighed ikke finder i dit lokale supermarked. Vi håndplukker, og sammensætter øllene for dig, så du kommer så bredt rundt som muligt.</p>
+    <Button title="Vores udvalg" variant="primary" />
+  </Artikel>
+
+  <div>
+    <img class="ansvar" src="/imgs/ansvarimg.webp" alt="">
+  </div>
+  
   <div id="product-data" data-fisk={product.category}></div>
 </Layout>
 
@@ -205,6 +221,17 @@ const { product } = Astro.props;
 
   .hide {
     fill: var(--true-white);
+  }
+
+  body {
+    background-color: var(--white);
+  }
+  
+  .ansvar {
+    border-top: double 3px var(--black);
+    border-bottom: double 3px var(--black);
+    width: 90vw;
+    margin: 96px 5vw;
   }
 
 @media (min-width: 800px) {

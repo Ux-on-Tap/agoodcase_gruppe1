@@ -15,7 +15,7 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 ---
 
 <Layout>
-  <h2>Shop</h2>
+  <h2 class="shoptitel">Vores øl</h2>
   <h3 class="navtitle">Filtre</h3>
   <span id="span1"></span>
 <div class="filtre">
@@ -95,7 +95,7 @@ span {
 }
 
 .filtre select:hover, .filtre select:focus {
-  background-color: var(--grey);
+  background-color: #00000019;
 }
 
 #bryghus, #lagerstatus {
@@ -131,6 +131,10 @@ display: block;
     grid-template-columns: repeat(2, 1fr);
     border: solid 3px var(--grey);
     margin: auto;
+  }
+
+  .shoptitel {
+    margin-top: 64px;
   }
 
   @media (min-width: 800px) {
