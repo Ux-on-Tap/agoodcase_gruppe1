@@ -108,12 +108,10 @@ nav.active .menu {
   width: 100%;
   z-index: 10;
   height: calc(100vh - 9rem);
-
 }
 
 nav.active .menu li {
   margin: 10px 0;
-
 }
 
 nav.active .menu a {
@@ -130,6 +128,7 @@ header {
   background-color: #ffffff;
   height: 9rem;
   z-index: 300;
+  filter: drop-shadow(0px 4px 4px #00000040);
 }
 
 .logo img {
