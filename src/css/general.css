@@ -161,7 +161,7 @@ img.burgergrid {
 }
 
 .menu a:hover {
-  color: #ff0000;
+  color: var(--primary);
 }
 
 .burger {
