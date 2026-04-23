@@ -4,7 +4,6 @@ import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
 import "../css/custom.css";
 import ProductDetails from "../components/ProductDetails.astro";
-import Filterbar from "../components/Filterbar.astro";
 
 const endpoint =
   "https://phmyuxewmvhrkzgmjrtw.supabase.co/rest/v1/Datastruktur_produkter?select=*";
@@ -17,7 +16,6 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 ---
 <Layout>
   <h1>omos</h1>
-  <Filterbar></Filterbar>
   <section>
     <p>jeg har lavet om os siden</p>
   </section>
